@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class PlayerVariables : MonoBehaviour
@@ -9,36 +8,8 @@ public class PlayerVariables : MonoBehaviour
     
     public bool isDash = false;
 
-    public void Initialize()
-    {
-        life = new IntVariable(5);
-        score = new IntVariable(4);
-    }
-
-    public void SetUp()
+    public void Start()
     {
         life.Value = 6;
     }
-}
-
-[Serializable]
-public class IntVariable
-{
-    public event Action<int> OnValueChange;
-    [SerializeField] private int _value;
-    public int Value
-    {
-        get => _value;
-        set
-        {
-            _value = value;
-            OnValueChange?.Invoke(value);
-        }
-    }
-    
-    public IntVariable(int defaultValue)
-    {
-        Value = defaultValue;
-    }
-    
 }
