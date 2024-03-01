@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
     
     IEnumerator jump()
     {
-        print("Inició la corrutina");
+        print("Inicio la corrutina");
         canJump = false;
         Vector2 jumpForceVector = Vector2.up * jumpForce;
         rb.AddForce(jumpForceVector);
@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
             
         );
 
-        // TODO: Mañana particula :D
+        // TODO: Maï¿½ana particula :D
 
         yield return new WaitForSeconds( 1f );
         canJump = true;

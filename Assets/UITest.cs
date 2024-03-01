@@ -4,26 +4,36 @@ using UnityEngine;
 
 public class UITest : MonoBehaviour
 {
-    public LifeController LifeController;
-    public PointsController PointsController;
-    public PlayerVariables Variables;
+    private LifeController _lifeController;
+    private PlayerVariables _variables;
 
-    private void OnEnable()
+    public void Initialize( LifeController lifeController, PlayerVariables variables )
     {
-        Variables.OnLifeChange += ChangeLifeController;
+        _lifeController = lifeController;
+        _variables = variables;
+    }
+    
+    public void Subscribe()
+    {
+        _variables.life.OnValueChange += ChangeLifeController;
+    }
+
+    public void UnSubscribe()
+    {
+        _variables.life.OnValueChange -= ChangeLifeController;
+    }
+
+    public void Disable()
+    {
+        
     }
 
     private void ChangeLifeController(int life)
     {
         if (life <= 0)
         {
-            Debug .Log("Perdiste");
+            Debug .Log("lose");
         }
-        LifeController.UpdateLife(life);
-    }
-
-    private void OnDisable()
-    {
-        Variables.OnLifeChange -= ChangeLifeController;
+        _lifeController.UpdateLife(life);
     }
 }

@@ -14,7 +14,7 @@ public class PlayerInteractable : MonoBehaviour
         if (other.TryGetComponent<Coin>(out Coin coin))
         {
             coin.Recollect();
-            playerVariables.points++;
+            playerVariables.score.Value++;
         }
     }
 
@@ -23,7 +23,7 @@ public class PlayerInteractable : MonoBehaviour
         
         if (coll.gameObject.TryGetComponent<Enemy>(out Enemy enemy))
         {
-            playerVariables.Life--;
+            playerVariables.life.Value--;
         }
     }
 }
