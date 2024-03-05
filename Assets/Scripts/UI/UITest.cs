@@ -1,10 +1,11 @@
 using UnityEngine;
+using Variables;
 
 public class UITest : MonoBehaviour
 {
     public LifeController lifeController;
-    public IntVariable life;
-    public IntVariable score;
+    public IntVar life;
+    public IntVar score;
     
     public void OnEnable()
     {

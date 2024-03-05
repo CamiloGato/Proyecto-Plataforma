@@ -1,9 +1,10 @@
 using UnityEngine;
+using Variables;
 
 public class PlayerVariables : MonoBehaviour
 {
-    public IntVariable life;
-    public IntVariable score;
+    public IntVar life;
+    public IntVar score;
     
     public bool isDash = false;
 
